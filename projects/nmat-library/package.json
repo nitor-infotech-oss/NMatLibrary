@@ -1,0 +1,11 @@
+{
+  "name": "nmat-library",
+  "version": "1.0.0",
+  "repository": "https://github.com/anilrathod04/NMatLibrary.git",
+  "author": "Anil Rathod <anilrathod04@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^7.0.0",
+    "@angular/core": "^7.0.0"
+  }
+}

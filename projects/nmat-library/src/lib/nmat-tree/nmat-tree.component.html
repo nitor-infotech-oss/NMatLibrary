@@ -1,0 +1,5 @@
+<ul [ngClass]="template">
+  <ng-template ngFor let-item [ngForOf]="data">
+    <li nmat-tree-node [item]="item" [template]="parentTemplate" [dataKey]="nestedItemKey" class="root-node"></li>
+  </ng-template>
+</ul>

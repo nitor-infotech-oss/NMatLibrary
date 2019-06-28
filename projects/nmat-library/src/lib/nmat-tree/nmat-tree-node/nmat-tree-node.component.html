@@ -1,0 +1,8 @@
+<div class="node-content" [class.isExpanded]="item.isExpanded" [class.pointer]="item[dataKey] && item[dataKey].length" (click)="item.isExpanded = !item.isExpanded">
+  <ng-container *ngTemplateOutlet="template; context:{$implicit: item}"></ng-container>
+</div>
+<ul *ngIf="item[dataKey]" [hidden]="!item.isExpanded">
+  <ng-template ngFor let-subitem [ngForOf]="item[dataKey]">
+    <li nmat-tree-node [item]="subitem" [template]="template" [dataKey]="dataKey"></li>
+  </ng-template>
+</ul>

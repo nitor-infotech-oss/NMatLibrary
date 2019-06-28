@@ -1,0 +1,57 @@
+<div class="body">
+  <!-- First Material -->
+  <div class="section">
+    <div class="heading">NMat Tree</div>
+    <strong>Example 1</strong>
+    <div class="row no-margin">
+      <div class="col-md-6">
+        <pre>
+          <code>
+            <span>{{exampleHtml1}}</span>
+            <div class="note-info">
+              <div>Data used for example is as follows:</div>
+              <div><strong>testData</strong> => {{testData | json}}</div>
+              <br />
+              <div class="note">items => in above example contains childrens for each nodes and follows the same structure.</div>
+            </div>
+          </code>
+        </pre>
+      </div>
+      <div class="col-md-6 material-view">
+        <strong>Output:</strong>
+        <nmat-tree [data]="testData">
+          <ng-template let-item>
+            <div class="node">{{item.title}}</div>
+          </ng-template>
+        </nmat-tree>
+      </div>
+    </div>
+    <br />
+    <strong>Example 2</strong>
+    <div class="row no-margin">
+      <div class="col-md-6">
+        <pre>
+          <code>
+            <span>{{exampleHtml2}}</span>
+            <div class="note-info">
+              <div>Data used for example is as follows:</div>
+              <div><strong>testData2</strong> => {{testData2 | json}}</div>
+              <br />
+              <strong>NOTE:</strong>
+              <div class="note">1. items => in above example contains childrens for each nodes and follows the same structure.</div>
+              <div class="note">2. Inside ng-template you can design node layout based on your need as this is extensible. item property hold reference to object map to that level and you can use that to build design.</div>
+            </div>
+          </code>
+        </pre>
+      </div>
+      <div class="col-md-6 material-view">
+        <strong>Output:</strong>
+        <nmat-tree [data]="testData2" [template]="'vertical-nodes'">
+          <ng-template let-item>
+            <div class="node">{{item.title}}</div>
+          </ng-template>
+        </nmat-tree>
+      </div>
+    </div>
+  </div>
+</div>
