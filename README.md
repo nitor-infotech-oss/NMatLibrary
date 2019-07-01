@@ -5,18 +5,17 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 This is angular based custom material library project. Here, you can find material collections with sample examples. 
 
 Here is the list of librariies available in this collection -
-1. NMat Tree Module (nmat-tree) : this gives you a tree structure layout with 2 types of template orientation which is quite flexible to extend and have your own node designs for complex data structures and don't have limitation on levels. 
+1. NMat Tree Module `(nmat-tree)` : this gives you a tree structure layout with 2 types of template orientation which is quite flexible to extend and have your own node designs for complex data structures and don't have limitation on levels. 
 
 Module: NmatTreeModule
 NPM Package: n-material-tree (npm i n-material-library)
 To try and see how it works, follow below given steps to see working example:
 1. Clone this repository
-git clone https://github.com/anilrathod04/NMatLibrary.git
+`git clone https://github.com/anilrathod04/NMatLibrary.git`
 2. Move to cloned directory
-3. Run following command in cmd prompt or GIT BASH
-npm install
-4. Once packages are installed run application by using following command
-ng serve nmat-explorer
+3. Run `npm install` command in cmd prompt or GIT BASH
+4. Once packages are installed run application by using command
+`ng serve nmat-explorer`
 
 ## Development server
 
