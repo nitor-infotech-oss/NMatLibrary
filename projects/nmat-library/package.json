@@ -1,8 +1,19 @@
 {
-  "name": "nmat-library",
+  "name": "n-material-library",
   "version": "1.0.0",
+  "description": "A simple tree view material which is helpful to draw structural view with dynamic defined data sets.",
   "repository": "https://github.com/anilrathod04/NMatLibrary.git",
   "author": "Anil Rathod <anilrathod04@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/anilrathod04/NMatLibrary/issues"
+  },
+  "homepage": "https://github.com/anilrathod04/NMatLibrary",
+  "keywords": [
+    "angular tree",
+    "modern tree",
+    "virtual node tree",
+    "simple tree"
+  ],
   "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^7.0.0",
