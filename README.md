@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 This is angular based custom material library project. Here, you can find material collections with sample examples. 
 
-Here is the list of librariies available in this collection -
+Here is the list of libraries available in this collection -
 1. NMat Tree Module `(nmat-tree)` : this gives you a tree structure layout with 2 types of template orientation which is quite flexible to extend and have your own node designs for complex data structures and don't have limitation on levels. 
 
 Module: NmatTreeModule
