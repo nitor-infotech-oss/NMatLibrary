@@ -1,6 +1,6 @@
 {
   "name": "n-material-library",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "A simple tree view material which is helpful to draw structural view with dynamic defined data sets.",
   "repository": "https://github.com/anilrathod04/NMatLibrary.git",
   "author": "Anil Rathod <anilrathod04@gmail.com>",
@@ -16,7 +16,10 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^7.0.0",
-    "@angular/core": "^7.0.0"
+    "@angular/common": "^15.0.0",
+    "@angular/core": "^15.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
   }
 }

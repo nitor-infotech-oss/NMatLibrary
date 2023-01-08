@@ -1,6 +1,6 @@
-# NmatLibrary
+# NMaterialLibrary
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
 
 This is angular based custom material library project.
 
@@ -44,9 +44,3 @@ data => this requires data in following format which is used to generate the lay
   }
 ]
 ```
-
-
-
-
-
-
