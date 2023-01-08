@@ -3,47 +3,49 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "nmat-library": {
-      "root": "projects/nmat-library",
-      "sourceRoot": "projects/nmat-library/src",
+    "n-material-library": {
       "projectType": "library",
-      "prefix": "nmat",
+      "root": "projects/n-material-library",
+      "sourceRoot": "projects/n-material-library/src",
+      "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/nmat-library/tsconfig.lib.json",
-            "project": "projects/nmat-library/ng-package.json"
-          }
+            "project": "projects/n-material-library/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/n-material-library/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/n-material-library/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/nmat-library/src/test.ts",
-            "tsConfig": "projects/nmat-library/tsconfig.spec.json",
-            "karmaConfig": "projects/nmat-library/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/nmat-library/tsconfig.lib.json",
-              "projects/nmat-library/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "tsConfig": "projects/n-material-library/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
             ]
           }
         }
       }
     },
     "nmat-explorer": {
-      "root": "projects/nmat-explorer/",
-      "sourceRoot": "projects/nmat-explorer/src",
       "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "projects/nmat-explorer/src",
       "prefix": "app",
-      "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -51,54 +53,58 @@
             "outputPath": "dist/nmat-explorer",
             "index": "projects/nmat-explorer/src/index.html",
             "main": "projects/nmat-explorer/src/main.ts",
-            "polyfills": "projects/nmat-explorer/src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "projects/nmat-explorer/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "projects/nmat-explorer/src/favicon.ico",
               "projects/nmat-explorer/src/assets"
             ],
-            "styles": [
-              "projects/nmat-explorer/src/styles.css"
-            ],
-            "scripts": []
+            "styles": [],
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "lodash"
+            ]
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/nmat-explorer/src/environments/environment.ts",
-                  "with": "projects/nmat-explorer/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
+              "budgets": [{
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
                 }
-              ]
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "nmat-explorer:build"
-          },
           "configurations": {
             "production": {
               "browserTarget": "nmat-explorer:build:production"
+            },
+            "development": {
+              "browserTarget": "nmat-explorer:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -109,62 +115,21 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/nmat-explorer/src/test.ts",
-            "polyfills": "projects/nmat-explorer/src/polyfills.ts",
-            "tsConfig": "projects/nmat-explorer/tsconfig.spec.json",
-            "karmaConfig": "projects/nmat-explorer/karma.conf.js",
-            "styles": [
-              "projects/nmat-explorer/src/styles.css"
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
             ],
-            "scripts": [],
+            "tsConfig": "projects/nmat-explorer/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "projects/nmat-explorer/src/favicon.ico",
               "projects/nmat-explorer/src/assets"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/nmat-explorer/tsconfig.app.json",
-              "projects/nmat-explorer/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "nmat-explorer-e2e": {
-      "root": "projects/nmat-explorer-e2e/",
-      "projectType": "application",
-      "prefix": "",
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "projects/nmat-explorer-e2e/protractor.conf.js",
-            "devServerTarget": "nmat-explorer:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "nmat-explorer:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "projects/nmat-explorer-e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "styles": [],
+            "scripts": []
           }
         }
       }
     }
-  },
-  "defaultProject": "nmat-library"
+  }
 }

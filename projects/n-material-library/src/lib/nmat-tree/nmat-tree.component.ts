@@ -1,4 +1,10 @@
-import { Component, OnInit, Input, ContentChild, TemplateRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ContentChild,
+  TemplateRef,
+} from '@angular/core';
 
 /**
  * Tree view component responsible to draw tree structure with defined node definition
@@ -19,16 +25,15 @@ import { Component, OnInit, Input, ContentChild, TemplateRef } from '@angular/co
 @Component({
   selector: 'nmat-tree',
   templateUrl: './nmat-tree.component.html',
-  styleUrls: ['./nmat-tree.component.scss']
+  styleUrls: ['./nmat-tree.component.scss'],
 })
 export class NmatTreeComponent implements OnInit {
   @Input() data: any = [];
   @Input() nestedItemKey = 'items';
   @Input() template = 'simple-tree'; // 'vertical-nodes' | 'simple-tree'
-  @ContentChild(TemplateRef) parentTemplate;
+  @ContentChild(TemplateRef) parentTemplate!: any;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() { }
-
+  ngOnInit() {}
 }
